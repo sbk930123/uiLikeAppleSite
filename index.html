@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- title -->
+  <title>Document</title>
+  <!-- style -->
+  <link rel="stylesheet" href="style.css">
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <div class="card-background">
+
+    <div class="card-box">
+      <img src="/img/card1.png" alt="">
+    </div>
+    <div class="card-box">
+      <img src="/img/card2.png" alt="">
+    </div>
+    <div class="card-box">
+      <img src="/img/card3.png" alt="">
+    </div>
+
+  </div>
+
+  <script>
+
+    let cardImg = $('.card-box');
+
+    $(window).scroll(function(){
+
+      var 높이 = $(window).scrollTop();
+      console.log(높이);
+
+      if(높이 >= 650 && 높이 < 1250) {
+        var y =  -1/500 * 높이 + 115/50;
+        cardImg.eq(0).css('opacity', y);
+
+        var z = (-1/5000) * 높이 + 565/500;
+        cardImg.eq(0).css('transform', `scale( ${z} )`);
+      } else if(높이 >= 1250 && 높이 < 1750) {
+        var y2 =  (-1/500) * 높이 + (7/2);
+        cardImg.eq(1).css('opacity', y2);
+
+        var z2 = (-1/5000) * 높이 + (5/4);
+        cardImg.eq(1).css('transform', `scale( ${z2} )`);
+      }
+
+    });
+
+  </script>
+  
+</body>
+</html>
